@@ -18,7 +18,7 @@ const VERSION = PackageFile.version
 
 export default JsonEditor
 
-export const components = {
-  JsonEditor,
-  VERSION
-}
+// export const components = {
+//   JsonEditor,
+//   VERSION
+// }
