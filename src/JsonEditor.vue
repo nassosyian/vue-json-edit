@@ -1,7 +1,7 @@
 <template>
-  <json-view 
+  <json-edit-view 
     :parsedData="parsedData" 
-    v-model="parsedData"></json-view>
+    v-model="parsedData"></json-edit-view>
 </template>
 
 <script>
@@ -9,6 +9,7 @@ import JsonView from "./JsonView.vue";
 
 export default {
   name: "JsonEditor",
+  components: { 'json-edit-view': JsonView },
   props: {
     objData: {
       type: Object,
@@ -57,7 +58,7 @@ export default {
     }
   },
   components: {
-    "json-view": JsonView
+    "json-edit-view": JsonView
   },
   methods: {
     jsonParse: function (jsonStr) {

@@ -65,7 +65,7 @@
 
 <script>
 export default {
-  name: 'ItemAddForm',
+  name: 'item-add-form',
   data () {
     return {
       formats: ['string', 'array', 'object', 'number', 'boolean'],

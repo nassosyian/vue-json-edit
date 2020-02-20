@@ -47,11 +47,11 @@
 
             <span class="json-val">
               <template v-if="member.type == 'array'">
-                <array-view :parsedData="member.childParams || []" v-model="member.childParams"></array-view>
+                <json-edit-array-view :parsedData="member.childParams || []" v-model="member.childParams"></json-edit-array-view>
               </template>
 
               <template v-if="member.type == 'object'">
-                <json-view :parsedData="member.childParams || {}" v-model="member.childParams"></json-view>
+                <json-edit-view :parsedData="member.childParams || {}" v-model="member.childParams"></json-edit-view>
               </template>
             </span>
           </div>
@@ -79,9 +79,10 @@
 
 <script>
 import ItemAddForm from "./ItemAddForm.vue";
+import draggable from 'vuedraggable';
 
 export default {
-  name: "ArrayView",
+  name: "json-edit-array-view",
   props: ["parsedData"],
   data: function() {
     return {
@@ -99,8 +100,9 @@ export default {
     }
   },
   components: {
+    'draggable': draggable,
     "item-add-form": ItemAddForm,
-    "json-view": () => import("./JsonView.vue")
+    "json-edit-view": () => import("./JsonView.vue")
   },
   methods: {
     delItem: function(parentDom, item, index) {
